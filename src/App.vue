@@ -1,28 +1,47 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="appp">
+    <div class="head">
+      <div>submitted date</div>
+      <div>submitted date</div>
+      <div>submitted date</div>
+      <div>submitted date</div>
+      <div>submitted date</div>
+      <div>submitted date</div>
+      <div>submitted date</div>
+    </div>
+    <div id="app">
+      <SubComp id="subcomp" v-for="item in 5" v-bind:key="item"> </SubComp>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SubComp from "./components/SubComp.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    SubComp,
+  },
+};
 </script>
 
 <style lang="scss">
+.head {
+  display: flex;
+  margin-top: 10px;
+}
+#subcomp {
+  overflow: auto;
+  border: 1px solid black;
+  width: 110%;
+  height: 150px;
+  background: #eee;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  border: 5px solid black;
+  width: 100%;
+  height: 405px;
+  overflow: auto;
 }
 </style>
