@@ -1,16 +1,10 @@
 <template>
-  <div id="appp">
-    <div class="head">
-      <div>submitted date</div>
-      <div>submitted date</div>
-      <div>submitted date</div>
-      <div>submitted date</div>
-      <div>submitted date</div>
-      <div>submitted date</div>
-      <div>submitted date</div>
-    </div>
-    <div id="app">
-      <SubComp id="subcomp" v-for="item in 5" v-bind:key="item"> </SubComp>
+  <div id="app">
+    <main id="container">
+      <SubComp id="subcomp" v-for="item in 5" v-bind:key="item"></SubComp>
+    </main>
+    <div id="scrollContainer" v-on:scroll="handleScroll">
+      <div id="fakeDiv"></div>
     </div>
   </div>
 </template>
@@ -23,25 +17,32 @@ export default {
   components: {
     SubComp,
   },
+  methods:{
+    handleScroll(e) {
+      let els = document.getElementsByClassName('paraClass')
+      for (let index = 0; index < els.length; index++) {
+        const element = els[index];
+        element.scrollLeft = e.target.scrollLeft;
+      }
+    }
+  }
 };
 </script>
 
 <style lang="scss">
-.head {
-  display: flex;
-  margin-top: 10px;
-}
-#subcomp {
-  overflow: auto;
-  border: 1px solid black;
-  width: 110%;
-  height: 150px;
-  background: #eee;
-}
-#app {
+#container {
   border: 5px solid black;
-  width: 100%;
-  height: 405px;
-  overflow: auto;
+  width: auto;
+  height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#scrollContainer{
+  height: 20px;
+  width: 100vw;
+  overflow-x: scroll;
+}
+#fakeDiv{
+  width: 200vw;
 }
 </style>
