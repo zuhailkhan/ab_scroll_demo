@@ -1,5 +1,6 @@
 <template>
   <div id="subcomp" class="paraClass" ref="paraRef">
+    <slot/>
     <p id="para">
       provident dolor beatae aut ut mollitia ullam.re nostrum aliquam voluptatum
       dolorem provident dolor beatae aut ut mollitia ullam. Lorem ipsum dolor sit

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <main id="container">
-      <SubComp id="subcomp" v-for="item in 5" v-bind:key="item"></SubComp>
+      <SubComp id="subcomp" v-for="item in 500" v-bind:key="item">
+        {{ item }}
+      </SubComp>
     </main>
     <div id="scrollContainer" v-on:scroll="handleScroll">
       <div id="fakeDiv"></div>
